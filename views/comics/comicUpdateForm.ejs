@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory | Update Comic</title>
+    <link rel="stylesheet" href="/stylesheets/global.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <div class="item-form">
+        <form action="/inventory/comics/<%= data._id %>" method="POST" class="form">
+            <h1>Comic Form</h1>
+            <input required class="input" type="text" name="name" placeholder="Comic Name" value="<%= data.name %>" />
+            <input required class="input" type="text" name="authorName" placeholder="Comic Author" value="<%= data.authorName %>">
+            <input required class="input" type="number" name="chapters" placeholder="Comic Chapters" value="<%= data.chapters %>">
+            <input required class="input" type="url" name="coverUrl" placeholder="Comic Cover Url"value="<%= data.coverUrl %>">
+            <input required class="input" type="url" name="urlTo" placeholder="Comic Url" value="<%= data.urlTo %>">
+            <select required class="input" name="mangaType" value="<%= data.mangaType %>">
+                <option value="Manhwa">Manhwa</option>
+                <option value="Manhua">Manhua</option>
+            </select>
+            <h3>Rate Comic</h3>
+            <input required class="input" type="range" name="ratings" min="0" max="5" value="<%= data.ratings %>">
+            <textarea  required class="input" name="summary" cols="30" rows="10" placeholder="Enter Summary" style="resize: none;"><%= data.summary %></textarea>
+            <div class="genres">
+                <% const totalGenres = [] %>
+                <% const comicGenres = [] %>
+                <%  genres.forEach(genre => { %>
+                    <% totalGenres.push(genre.name) %>
+                <% }) %>
+                <%  data.genre.forEach(genre => { %>
+                    <% comicGenres.push(genre) %>
+                <% }) %>
+                <% const intersection = totalGenres.filter(element => { %>
+                    <% if(comicGenres.includes(element)) { %>
+                        <div class="genre-label">
+                            <input type="checkbox" name="genre" id="" checked>
+                            <label for="genre"><%= element %></label>
+                        </div>
+                    <% } else {%>
+                        <div class="genre-label">
+                            <input type="checkbox" name="genre" id="">
+                            <label for="genre"><%= element %></label>
+                        </div>
+                    <% } %>
+                <% }); %>
+
+            </div>
+            <button type="submit" class="input">Update Comic</button>
+        </form>
+    </div>
+</body>
+</html>

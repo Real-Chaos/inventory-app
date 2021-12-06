@@ -1,0 +1,64 @@
+<div class="item-details">
+    <div class="item-overview">
+        <div class="item-detailed-overview">
+            <h1 class="item-name"><%= details.name %></h1>
+            <div class="detailed-overview-summary">
+                <div class="item-img">
+                    <img src="<%= details.coverUrl %>" alt="">
+                </div>
+                <div class="item-description">
+                    <div class="delete-update">
+                        <div class="delete-update-icons">
+                            <a href="/inventory/comics/<%= details._id %>/update"><i class="fas fa-pencil-alt update"></i></a>
+                            <i data-id="<%= details._id %>"  class="fas fa-trash delete"></i>
+                        </div>
+                    </div>
+                    <div class="item-info">
+                        <div class="item-info-h2-div"><h2 class="item-info-h2">Rating: </h2><h2 class="item-info-h2"><%= details.ratings %></h2></div>
+                        <div class="item-info-h2-div">
+                            <% if(type === "comic") { %>
+                                <h2 class="item-info-h2">Author: </h2><h2 class="item-info-h2"><%= details.authorName %></h2>
+                            <% } else if(type === "Manga") { %>
+                                <h2 class="item-info-h2">Mangaka: </h2><h2 class="item-info-h2"><%= details.mangaka %></h2>
+                            <% } else {%>
+                                <h2 class="item-info-h2">Creator: </h2><h2 class="item-info-h2"><%= details.creator %></h2>
+                            <% } %>
+                        </div>
+                        <div class="item-info-h2-div">
+                            <% if(type === "comic" || type === "Manga") { %>
+                                <h2 class="item-info-h2">Chapters: </h2>
+                                <h2 class="item-info-h2"><%= details.chapters %></h2>
+                            <% } else { %>
+                                <h2 class="item-info-h2">Episodes: </h2>
+                                <h2 class="item-info-h2"><%= details.episodes %></h2>
+                            <% } %>
+                        </div>
+                        <div class="item-info-h2-div"><h2 class="item-info-h2">Genres: </h2><h4 class="item-info-h2"><%= details.genre %> </h4></div>
+                        <div class="item-info-h2-div">
+                            <h2 class="item-info-h2">Type: </h2>
+                            <% if(type === "comic") { %>
+                                <h2 class="item-info-h2"><%= details.mangaType %></h2>
+                            <% } else {%>
+                                <h2 class="item-info-h2"><%= type %></h2>
+                            <% } %>
+                        </div>
+                        <div class="item-ratings">
+                            <%for(let i = 0; i < details.ratings ; i++) { %>
+                                <i class="fas fa-star colored"></i>
+                            <% } %>
+                            <% const totalStars = 5 - details.ratings %>
+                            <%  for(let i = 0; i < totalStars ; i++) { %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="item-summary">
+                        <h1>Summary</h1>
+                        <p><%= details.summary %></p>
+                        <button><a href="<%= details.urlTo %>">Read</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

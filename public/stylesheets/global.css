@@ -1,0 +1,351 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #171717;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    display: block !important;
+}
+
+img {
+    display: block;
+}
+
+/* --------------------------------------------------------------------------------------------- Header ----------------------------------------------------------------------------------------- */ 
+
+header {
+    background: url('../images/header-bg.webp') no-repeat;
+    background-size: cover;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    padding: 10px;
+}
+
+div.logo {
+    justify-self: start;
+}
+
+div.nav {
+    justify-self: center;
+}
+
+div.search-bar {
+    justify-self: end;
+}
+
+div.logo img {
+    height: 50px;
+    width: auto;
+    margin-left: 10px;
+}
+
+div.nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+div.nav ul li {
+    margin: 0 25px;
+}
+
+div.nav ul li a {
+    color: white;
+}
+
+div.search-bar div.search-icon {
+    display: flex;
+    background: white;
+    color: black;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+
+/* ------------------------------------------------------------------------------------ Inventory Items Listing --------------------------------------------------------------------------------- */ 
+
+
+.item-section {
+    padding: 1% 15%;
+}
+
+.section-title {
+    text-align: center;
+    margin-top: 50px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 30px;
+}
+
+
+div.item-list {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 50px;
+}
+
+.item-card {
+    cursor: pointer;
+    margin: auto;
+    position: relative;
+}
+
+.item-card img {
+    height: 250px;
+    border-radius: 7px;
+    width: 100%;
+}
+
+.item-title, .item-chapters {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.item-title {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.item-type {
+    position: absolute;
+    top: 220px;
+    left: 7px;
+    border: solid red;
+    background: red;
+    padding: 1px 10px;
+}
+
+.item-ratings {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.item-ratings .colored {
+    color: yellow;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------ Item Overview ------------------------------------------------------------------------------------ */
+
+
+.item-overview {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('http://simplefreethemes.com/wp-content/uploads/2017/04/Beautiful-Norway.jpg') no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 4% 20%;
+    position: absolute;
+    top: 0;
+    z-index: -1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-name {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 50px;
+}
+
+div.item-img img {
+    height: 400px;
+    border-radius: 7px;
+}
+
+.detailed-overview-summary {
+    display: flex;
+    justify-content: space-around;
+}
+
+div.item-description {
+    background: rgba(0, 0, 0, 0.7);
+    width: 800px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+}
+
+
+.item-info {
+    margin: 20px;
+    padding: 2% 7%;
+    border-right: solid white;
+    display: grid;
+    align-items: center;
+}
+
+.item-info .item-ratings {
+    font-size: 25px;
+}
+
+.item-info .item-ratings h1 {
+    margin-left: 10px;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.item-info-h2-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-info-h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 10px;
+}
+
+.item-summary {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5% 4%;
+    /* position: relative; */
+}
+
+.item-summary h1 {
+    margin-top: 10px;
+}
+
+.item-summary p {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.item-summary button {
+    padding: 15px 60px;
+    width: 80%;
+    margin-top: 30px;
+    background: black;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.delete-update {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+
+.delete-update .delete, .delete-update .update {
+    font-size: 20px;
+    padding: 5px 7px;
+}
+
+.delete-update .delete-update-icons {
+    display: flex;
+}
+
+.delete-update-icons i {
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------------------------------------------------------ Create Item Form------------------------------------------------------------------------------------ */
+
+.create-item {
+    position: absolute;
+    right: 30px;
+    top: 100px;
+}
+
+.create-item button {
+    padding: 10px 30px;
+    outline: none;
+    border: solid white;
+    background: none;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+.item-form {
+    padding: 5% 8%;
+    background: url('https://eskipaper.com/images/blue-sunset-9.jpg') no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1000;
+    display: flex;
+    justify-content: center;
+}
+
+.item-form .form {
+    background: rgba(0, 0, 0, 0.7);
+    width: 50%;
+    display: grid;
+    margin: auto;
+    padding: 2% 4%;
+}
+
+.item-form .form .input {
+    display: block;
+    width: 100%;
+    margin: 5px;
+    padding: 7px;
+    outline: none;
+    border: 1px solid white;
+    background: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.item-form .form h3, .item-form .form h1 {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 7px 0;
+}
+
+
+.genres {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+}
+
+.genre-label {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.genre-label label {
+    margin: 0 10px;
+}
+
+.item-form .form button.input {
+    cursor: pointer;
+}

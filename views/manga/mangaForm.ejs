@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory | Create Manga</title>
+    <link rel="stylesheet" href="/stylesheets/global.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="item-form">
+        <form action="/inventory/manga" method="POST" class="form">
+            <h1>Manga Form</h1>
+            <input required class="input" type="text" name="name" placeholder="Manga Name">
+            <input required class="input" type="text" name="mangaka" placeholder="Mangaka">
+            <input required class="input" type="number" name="chapters" placeholder="Manga Chapters">
+            <input required class="input" type="url" name="coverUrl" placeholder="Manga Cover Url">
+            <input required class="input" type="url" name="urlTo" placeholder="Manga Url">
+            <h3>Rate Manga</h3>
+            <input required class="input" type="range" name="ratings" min="0" max="5">
+            <textarea required class="input" name="summary" cols="30" rows="10" placeholder="Enter Summary" style="resize: none;"></textarea>
+            <div class="genres">
+                <% genres.forEach(genre => { %>
+                    <div class="genre-label">
+                        <input type="checkbox" name="genre" value="<%= genre.name %>">
+                        <label for="genre"><%= genre.name %></label>
+                    </div>
+                <% }) %>
+            </div>
+            <button type="submit" class="input">Create Manga</button>
+        </form>
+    </div>
+</body>
+</html>

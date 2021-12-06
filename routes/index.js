@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router();
+const inventory_page = require('../controllers/inventoryController')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', (req, res) => {
+    res.redirect('/inventory')
+})
 
-module.exports = router;
+router.get('/inventory', inventory_page)
+
+
+module.exports = router

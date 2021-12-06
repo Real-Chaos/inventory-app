@@ -1,0 +1,42 @@
+
+<div class="item-list">
+    <% items.forEach(item => { %>
+        <div class="item-card">
+            <% if(page == "main") { %>
+                <a href="inventory/<%= itemType %>/<%= item._id %>">
+                    <img src=<%= item.coverUrl %> alt="">
+                </a>
+            <% } else { %>
+                <a href="<%= itemType %>/<%= item._id %>">
+                    <img src=<%= item.coverUrl %> alt="">
+                </a>
+            <% } %>
+            <div class="item-type">
+                <% if(itemType == "comics") { %>
+                    <h5><%= item.mangaType %></h5>
+                <% } else { %>
+                    <h5><%= itemType %></h5>
+                <% } %>
+            </div>
+            <% if(page == "main") { %>
+                <a href="inventory/<%= itemType %>/<%= item._id %>"><h3 class="item-title"><%= item.name %></h3></a>
+            <% } else { %>
+                <a href="<%= itemType %>/<%= item._id %>"><h3 class="item-title"><%= item.name %></h3></a>
+            <% } %>
+            <% if(itemType == "manga" || itemType == "comics") { %>
+                <h4 class="item-chapters">Chapters: <%= item.chapters %></h4>
+            <% } else { %>
+                <h4 class="item-chapters">Episodes: <%= item.episodes %></h4>
+            <% } %>
+            <div class="item-ratings">
+                <%  for(let i = 0; i < item.ratings ; i++) { %>
+                    <i class="fas fa-star colored"></i>
+                <% } %>
+                <% const totalStars = 5 - item.ratings %>
+                <%  for(let i = 0; i < totalStars ; i++) { %>
+                    <i class="fas fa-star"></i>
+                <% } %>
+            </div>
+        </div>
+    <% }) %>
+</div>
